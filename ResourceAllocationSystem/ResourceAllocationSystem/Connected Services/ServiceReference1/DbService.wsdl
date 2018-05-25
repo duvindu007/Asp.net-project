@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DbService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56301/DbService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56301/DbService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56301/DbService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:56301/DbService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDbService_OpenConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenConnection" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_OpenConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CloseConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseConnection" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_CloseConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_ExecuteQueries_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueries" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_ExecuteQueries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_DataReader_InputMessage">
+    <wsdl:part name="parameters" element="tns:DataReader" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_DataReader_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DataReaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_ShowDataInGridView_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowDataInGridView" />
+  </wsdl:message>
+  <wsdl:message name="IDbService_ShowDataInGridView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShowDataInGridViewResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDbService">
+    <wsdl:operation name="OpenConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/OpenConnection" message="tns:IDbService_OpenConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/OpenConnectionResponse" message="tns:IDbService_OpenConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/CloseConnection" message="tns:IDbService_CloseConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/CloseConnectionResponse" message="tns:IDbService_CloseConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQueries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/ExecuteQueries" message="tns:IDbService_ExecuteQueries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/ExecuteQueriesResponse" message="tns:IDbService_ExecuteQueries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DataReader">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/DataReader" message="tns:IDbService_DataReader_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/DataReaderResponse" message="tns:IDbService_DataReader_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowDataInGridView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDbService/ShowDataInGridView" message="tns:IDbService_ShowDataInGridView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDbService/ShowDataInGridViewResponse" message="tns:IDbService_ShowDataInGridView_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDbService" type="tns:IDbService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OpenConnection">
+      <soap:operation soapAction="http://tempuri.org/IDbService/OpenConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseConnection">
+      <soap:operation soapAction="http://tempuri.org/IDbService/CloseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQueries">
+      <soap:operation soapAction="http://tempuri.org/IDbService/ExecuteQueries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataReader">
+      <soap:operation soapAction="http://tempuri.org/IDbService/DataReader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDataInGridView">
+      <soap:operation soapAction="http://tempuri.org/IDbService/ShowDataInGridView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DbService">
+    <wsdl:port name="BasicHttpBinding_IDbService" binding="tns:BasicHttpBinding_IDbService">
+      <soap:address location="http://localhost:56301/DbService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
